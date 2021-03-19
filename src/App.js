@@ -5,6 +5,7 @@ import Tasks from "./components/Tasks";
 
 function App() {
   const name = 'Brad';
+  const noTaskMsg = 'No Tasks To Show';
   const [tasks, setTasks] = useState([
     {
         id: 1,
@@ -35,7 +36,7 @@ const deleteTask = (id) => {
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      { tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} /> : noTaskMsg }
     </div>
   );
 }
