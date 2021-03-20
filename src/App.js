@@ -1,5 +1,5 @@
 //import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
@@ -9,6 +9,24 @@ function App() {
   const noTaskMsg = 'No Tasks To Show';
   const [tasks, setTasks] = useState([])
 
+  useEffect(() => {
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
+    }
+
+    getTasks()
+  }, [])
+
+
+  // Fetch Tasks
+  const fetchTasks = async () => {
+    const res = await fetch('http://localhost:5000/tasks')
+    const data = await res.json()
+
+    return data
+  }
+
 // Add task
 const addTask = (task) => {
   const id = Math.floor(Math.random() * 10000) + 1;
@@ -17,7 +35,10 @@ const addTask = (task) => {
 }
 
 // Delet Task
-const deleteTask = (id) => {
+const deleteTask = async (id) => {
+  await fetch(`http://localhost:5000/tasks/${id}`, {
+    method: 'DELETE',
+  })
   setTasks(tasks.filter((task) => task.id !== id))
 }
 
