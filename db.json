@@ -11,18 +11,6 @@
       "text": "Meeting at school",
       "day": "Feb 6th at 1:30pm",
       "reminder": false
-    },
-    {
-      "text": "Go to swimming",
-      "day": "March 21st at 7:00 pm",
-      "reminder": true,
-      "id": 3
-    },
-    {
-      "text": "Read documentation",
-      "day": "Sunday ",
-      "reminder": true,
-      "id": 4
     }
   ]
 }
