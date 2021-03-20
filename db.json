@@ -11,6 +11,12 @@
       "text": "Meeting at school",
       "day": "Feb 6th at 1:30pm",
       "remainder": true
+    },
+    {
+      "text": "Go to swimming",
+      "day": "March 21st at 7:00 pm",
+      "reminder": false,
+      "id": 3
     }
   ]
 }
